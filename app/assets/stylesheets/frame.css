@@ -1,0 +1,54 @@
+body {
+  font-size: 16px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  text-align: center;
+  /* background-color: #f8faff; */
+}
+
+#pageFrame {
+  height: 100vh;
+  width: 100vw;
+  border: solid greenyellow 2px;
+  display: grid;
+  grid-template-columns: [left-page]1fr[left-margin] 15fr[right-margin] 1fr[right-page];
+  grid-template-rows: [top] 3fr [content] 10fr [controls] 8fr [footer]2fr[bottom];
+}
+
+header {
+  grid-column-start: left-page;
+  grid-column-end: right-page;
+  grid-row-start: top;
+  grid-row-end: content;
+  background-color: pink;
+  border: magenta 2px solid;
+}
+
+#displayFrame {
+  grid-column-start: left-margin;
+  grid-column-end: right-margin;
+  grid-row-start: content;
+  grid-row-end: controls;
+  background-color: pink;
+  border: magenta 2px solid;
+}
+
+#controlsFrame {
+  grid-column-start: left-margin;
+  grid-column-end: right-margin;
+  grid-row-start: controls;
+  grid-row-end: footer;
+  background-color: pink;
+  border: dotted orange 5px;
+
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+}
+
+footer {
+  grid-column-start: left-page;
+  grid-column-end: right-page;
+  grid-row-start: footer;
+  grid-row-end: bottom;
+  background-color: pink;
+  border: magenta 2px solid;
+}

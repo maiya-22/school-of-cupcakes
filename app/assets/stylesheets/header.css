@@ -1,0 +1,13 @@
+#siteTitle {
+  font-family: "Cookie", cursive;
+  font-size: 3rem;
+  /* animation-name: fadeIn;
+  animation-duration: 2s; */
+}
+#siteTitleWrap {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
