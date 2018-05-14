@@ -18,7 +18,7 @@ body {
   width: 100vw;
   /* border: solid greenyellow 2px; */
   display: grid;
-  grid-template-columns: [left-page]1fr[left-margin] 15fr[right-margin] 1fr[right-page];
+  grid-template-columns: [left-page]1fr[left-margin] 10fr[right-margin] 1fr[right-page];
   grid-template-rows: [top] minmax(200px, 4fr) [content] minmax(400px, 10fr) [controls] 8fr [footer]2fr[bottom];
 }
 
@@ -38,7 +38,6 @@ header {
   grid-row-end: controls;
   /* background-color: pink; */
   /* border: magenta 2px solid; */
-  /* overflow-y: scroll; */
 }
 
 /* when the display frame is showing the home slideshow */

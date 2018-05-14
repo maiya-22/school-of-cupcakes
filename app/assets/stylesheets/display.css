@@ -47,3 +47,20 @@
 #teachers {
   /* border: dotted rgb(228, 40, 16) 5px; */
 }
+
+.displayAll {
+  display: inline;
+  /* max-width: 60%; */
+  /* background-color: yellow; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  overflow-y: scroll;
+  text-align: center;
+}
+
+.personProfileWrap {
+  border: solid blue 3px;
+  width: 200px;
+  height: 300px;
+  float: left;
+}
