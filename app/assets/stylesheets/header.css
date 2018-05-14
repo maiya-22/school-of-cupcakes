@@ -1,13 +1,16 @@
 #siteTitle {
-  font-family: "Cookie", cursive;
+  /* font-family: "Cookie", cursive; */
+  font-family: "Love Ya Like A Sister", cursive;
+  color: rgb(255, 136, 0);
   font-size: 3rem;
-  /* animation-name: fadeIn;
-  animation-duration: 2s; */
+  animation-name: rubberBand;
+  animation-duration: 1.5s;
+  animation-delay: 1s;
 }
 #siteTitleWrap {
   opacity: 0;
   animation-name: fadeIn;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
   animation-duration: 2s;
   animation-fill-mode: both;
 }

@@ -1,9 +1,9 @@
 #controlButtonsWrap {
   display: flex;
   justify-content: center;
-  border: solid green 3px;
+  /* border: solid green 3px; */
 }
 
 #controlsContent {
-  border: aqua 3px solid;
+  /* border: aqua 3px solid; */
 }

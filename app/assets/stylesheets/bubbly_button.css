@@ -113,3 +113,7 @@
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
+
+.activeBubbly {
+  background-color: purple;
+}

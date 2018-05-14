@@ -1,3 +1,11 @@
+#flashNoticeWrap {
+  /* border: solid blue 2px; */
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0px;
+}
+
 body {
   font-size: 16px;
   font-family: "Helvetica", "Arial", sans-serif;
@@ -8,7 +16,7 @@ body {
 #pageFrame {
   height: 100vh;
   width: 100vw;
-  border: solid greenyellow 2px;
+  /* border: solid greenyellow 2px; */
   display: grid;
   grid-template-columns: [left-page]1fr[left-margin] 15fr[right-margin] 1fr[right-page];
   grid-template-rows: [top] 3fr [content] 10fr [controls] 8fr [footer]2fr[bottom];
@@ -19,8 +27,8 @@ header {
   grid-column-end: right-page;
   grid-row-start: top;
   grid-row-end: content;
-  background-color: pink;
-  border: magenta 2px solid;
+  /* border: magenta 2px solid; */
+  padding-top: 1.5rem;
 }
 
 #displayFrame {
@@ -28,8 +36,13 @@ header {
   grid-column-end: right-margin;
   grid-row-start: content;
   grid-row-end: controls;
-  background-color: pink;
-  border: magenta 2px solid;
+  /* background-color: pink; */
+  /* border: magenta 2px solid; */
+  overflow-x: scroll;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #controlsFrame {
@@ -37,8 +50,8 @@ header {
   grid-column-end: right-margin;
   grid-row-start: controls;
   grid-row-end: footer;
-  background-color: pink;
-  border: dotted orange 5px;
+  /* background-color: pink; */
+  /* border: dotted orange 5px; */
 
   display: grid;
   grid-template-rows: 1fr 5fr;
@@ -49,6 +62,6 @@ footer {
   grid-column-end: right-page;
   grid-row-start: footer;
   grid-row-end: bottom;
-  background-color: pink;
-  border: magenta 2px solid;
+  /* background-color: pink; */
+  /* border: magenta 2px solid; */
 }

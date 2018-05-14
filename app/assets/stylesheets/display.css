@@ -1,0 +1,48 @@
+/* EVERYTHING INSIDE THE DISPLAYFRAME */
+
+.outterSlideShowContainer {
+  /* background-color: purple; */
+  background-image: url("https://images-na.ssl-images-amazon.com/images/I/61tbRy6bjuL._SL1075_.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100%;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+.topicFrame {
+  /* border: dotted turquoise 5px; */
+}
+
+.profileSummaryWrap {
+  height: 200px;
+  width: 200px;
+  /* border: dotted orange 3px; */
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profileSummaryPicWrap {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  /* background-color: purple; */
+}
+
+#students,
+#teachers,
+#classes,
+#cohorts {
+  /* border: dotted lightgreen 5px; */
+  flex-grow: 1;
+  display: flex;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+#teachers {
+  /* border: dotted rgb(228, 40, 16) 5px; */
+}
