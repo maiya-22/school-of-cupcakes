@@ -88,3 +88,14 @@ require "time"
     
 # end
 
+
+# @admin_names = ['charlie', 'chuck', 'jane', 'sally']
+# @index = 0
+# 4.times do
+#     Access.create([{
+#         user_name: @admin_names[@index],
+#         password: 'secretpassword',
+#         role: 'admin'
+#     }])
+#     @index += 1
+# end
