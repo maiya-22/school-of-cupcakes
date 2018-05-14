@@ -7,6 +7,11 @@ class CohortsController < ApplicationController
     @cohorts = Cohort.all
   end
 
+  def all
+    @cohorts = Cohort.all
+    render :all, :layout => false
+  end
+
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show

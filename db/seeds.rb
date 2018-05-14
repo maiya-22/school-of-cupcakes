@@ -54,27 +54,37 @@ require "time"
 #     }])
 # end
 
-Time.new(2002, 10, 31)
+# Time.new(2002, 10, 31)
 
-@teacher_id = 0
-@day = Random.new.rand(20) + 1
-@month = Random.new.rand(12) + 1
-@year = Random.new.rand(1) + 2017 
-20.times do
-    @start = Time.new(@year, @month, @day)
-    @month = @month + 6;
-    if(@month > 12) 
-        @month -= 12
-        @year += 1
-    end
-    @end = Time.new(@year, @month, @day)
-    Cohort.create([{
-        name: Faker::Dessert.flavor + " " + Faker::Dessert.variety + " Cohort",
-        start:@start,
-        end:@end,
-        teacher_id: @teacher_id
-    }])
+# @teacher_id = 1
+# @course_id = 1
+# @day = Random.new.rand(20) + 1
+# @month = Random.new.rand(12) + 1
+# @year = Random.new.rand(1) + 2017 
+# 20.times do
+#     @start = Time.new(@year, @month, @day)
+#     @month = @month + 6;
+#     if(@month > 12) 
+#         @month -= 12
+#         @year += 1
+#     end
+#     @end = Time.new(@year, @month, @day)
+#     Cohort.create([{
+#         name: Faker::Dessert.flavor + " " + Faker::Dessert.variety + " Cohort",
+#         start:@start,
+#         end:@end,
+#         teacher_id: @teacher_id,
+#         course_id: @course_id
+#     }])
 
-    @teacher_id += 1
-end
+#     @teacher_id += 1
+#     @course_id += 1
+#     if(@course_id == 11)
+#         @course_id -= 10
+#     end
+#     if(@teacher_id == 21)
+#         @teacher_id -= 20
+#     end
+    
+# end
 

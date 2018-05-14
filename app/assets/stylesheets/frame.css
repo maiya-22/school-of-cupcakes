@@ -37,17 +37,35 @@ header {
   grid-row-start: content;
   grid-row-end: controls;
   /* background-color: pink; */
-  /* border: magenta 2px solid; */
+  border: magenta 2px solid;
   /* overflow-y: scroll; */
 }
+
 /* when the display frame is showing the home slideshow */
 .displayFrameHome {
   display: flex;
 }
 /* when the display frame is showing model instances */
 .displayFrameDisplay {
-  /* display: flex; */
+  display: grid;
   overflow-y: scroll;
+}
+
+.oneColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1r;
+}
+.threeColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.fourColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #controlsFrame {

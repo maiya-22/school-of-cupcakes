@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 2018_05_14_024613) do
     t.date "start"
     t.datetime "end"
     t.bigint "teacher_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_cohorts_on_course_id"
     t.index ["teacher_id"], name: "index_cohorts_on_teacher_id"
   end
 

@@ -19,6 +19,12 @@ const controlButtonsWrap = document.getElementById('controlButtonsWrap');
 let numberOfDisplays = 0;
 if (controlButtonsWrap) {
   controlButtonsWrap.addEventListener('click', (e) => {
+    function removeColumns(element) {
+      element.classList.remove('oneColumn');
+      element.classList.remove('twoColumn');
+      element.classList.remove('threeColumn');
+      element.classList.remove('fourColumn');
+    }
     const button = e.target;
     // break out of the function, if the target is not a button:
     if (button.tagName !== 'BUTTON') return null;
@@ -46,6 +52,8 @@ if (controlButtonsWrap) {
         display.classList.remove('displayFrameHome');
         display.classList.add('displayFrameDisplay');
         display.innerHTML = '';
+        removeColumns(display);
+        display.classList.add('oneColumn');
       }
       numberOfDisplays += 1;
       requestPromise(`/${dataType}/all`)
@@ -62,6 +70,14 @@ if (controlButtonsWrap) {
             });
           } else {
             topicFrame.innerHTML = data;
+          }
+          removeColumns(display);
+          if (numberOfDisplays === 2) {
+            display.classList.add('twoColumn');
+          } else if (numberOfDisplays === 3) {
+            display.classList.add('threeColumn');
+          } else if (numberOfDisplays === 4) {
+            display.classList.add('fourColumn');
           }
           display.appendChild(topicFrame);
         })
