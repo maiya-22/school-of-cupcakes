@@ -1,6 +1,9 @@
 #controlButtonsWrap {
+  padding-top: 3rem;
+  width: 60%;
+  margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   /* border: solid green 3px; */
 }
 

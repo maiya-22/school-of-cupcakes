@@ -19,7 +19,7 @@ body {
   /* border: solid greenyellow 2px; */
   display: grid;
   grid-template-columns: [left-page]1fr[left-margin] 15fr[right-margin] 1fr[right-page];
-  grid-template-rows: [top] 3fr [content] 10fr [controls] 8fr [footer]2fr[bottom];
+  grid-template-rows: [top] minmax(200px, 4fr) [content] minmax(400px, 10fr) [controls] 8fr [footer]2fr[bottom];
 }
 
 header {
@@ -28,7 +28,7 @@ header {
   grid-row-start: top;
   grid-row-end: content;
   /* border: magenta 2px solid; */
-  padding-top: 1.5rem;
+  padding-top: 2.5rem;
 }
 
 #displayFrame {
@@ -38,11 +38,16 @@ header {
   grid-row-end: controls;
   /* background-color: pink; */
   /* border: magenta 2px solid; */
-  overflow-x: scroll;
-
+  /* overflow-y: scroll; */
+}
+/* when the display frame is showing the home slideshow */
+.displayFrameHome {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+}
+/* when the display frame is showing model instances */
+.displayFrameDisplay {
+  /* display: flex; */
+  overflow-y: scroll;
 }
 
 #controlsFrame {

@@ -1,0 +1,10 @@
+
+
+<% @courses.each do |course| %>
+    <div class="profileSummaryWrap">
+        <h5>course title:<%=course.name%> </h5>
+        <div style="background-image:url(<%=course.pic%>)" class="profileSummaryPicWrap"></div>
+        <div><%=course.hours%></div>
+        <div><%=course.description%></div>
+    </div>
+<% end %>

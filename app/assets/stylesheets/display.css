@@ -12,7 +12,10 @@
 }
 
 .topicFrame {
-  /* border: dotted turquoise 5px; */
+  border: dotted turquoise 5px;
+  display: flex;
+
+  /* flex-direction: column; */
 }
 
 .profileSummaryWrap {

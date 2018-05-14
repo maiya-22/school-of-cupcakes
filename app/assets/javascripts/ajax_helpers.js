@@ -17,10 +17,11 @@ function requestPromise(uri, method = 'GET') {
 const display = document.getElementById('displayFrame');
 const controlButtonsWrap = document.getElementById('controlButtonsWrap');
 let numberOfDisplays = 0;
-// if (numberOfDisplays > 4) numberOfDisplays = 0;
 if (controlButtonsWrap) {
   controlButtonsWrap.addEventListener('click', (e) => {
     const button = e.target;
+    // break out of the function, if the target is not a button:
+    if (button.tagName !== 'BUTTON') return null;
     const dataType = button.innerHTML;
     const buttonIsActive = button.classList.contains('activeBubbly');
     if (buttonIsActive) {
@@ -31,6 +32,8 @@ if (controlButtonsWrap) {
       if (numberOfDisplays === 0) {
         requestPromise('/pages/index_string')
           .then((htmlString) => {
+            display.classList.remove('displayFrameDisplay');
+            display.classList.add('displayFrameHome');
             display.innerHTML = htmlString || 'hello';
           })
           .catch((e) => {
@@ -39,17 +42,27 @@ if (controlButtonsWrap) {
       }
     } else if (!buttonIsActive) {
       button.classList.add('activeBubbly');
-      if (numberOfDisplays === 0) display.innerHTML = '';
+      if (numberOfDisplays === 0) {
+        display.classList.remove('displayFrameHome');
+        display.classList.add('displayFrameDisplay');
+        display.innerHTML = '';
+      }
       numberOfDisplays += 1;
       requestPromise(`/${dataType}/all`)
-        .then((objects) => {
-          const parsedObjects = JSON.parse(objects);
+        .then((data) => {
+          // the frame that will be added to the DOM:
           const topicFrame = document.createElement('div');
           topicFrame.classList.add('topicFrame');
           topicFrame.id = dataType;
-          parsedObjects.forEach((object) => {
-            createSummaryDomElement(object, dataType, topicFrame);
-          });
+          if (dataType === 'teachers' || dataType === 'students') {
+            const parsedObjects = JSON.parse(data);
+            console.log(data);
+            parsedObjects.forEach((object) => {
+              createSummaryDomElement(object, dataType, topicFrame);
+            });
+          } else {
+            topicFrame.innerHTML = data;
+          }
           display.appendChild(topicFrame);
         })
         .catch((e) => {
@@ -58,6 +71,7 @@ if (controlButtonsWrap) {
     }
   });
 }
+// creates student and teacher profile summaries:
 function createSummaryDomElement(object, type, displayElement) {
   // get the 'type' from their 'type' on the access table:
   // PROFILE WRAP:
@@ -70,7 +84,10 @@ function createSummaryDomElement(object, type, displayElement) {
     profileSummaryPicWrap.style.backgroundImage = `url('${object.pic}')`;
     profileWrap.appendChild(profileSummaryPicWrap);
     const showButton = document.createElement('a');
-    showButton.innerHTML = `${object.first_name} ${object.last_name} : ${type}`;
+    showButton.innerHTML = `${object.first_name} ${object.last_name} : ${type.slice(
+      0,
+      type.length - 1,
+    )}`;
     showButton.href = `/${type}/${object.id}`;
     profileWrap.appendChild(showButton);
     // ADD THE PROFILE TO THE DISPLAY:
