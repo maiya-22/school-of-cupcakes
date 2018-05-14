@@ -1,31 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Cohorts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start</th>
-      <th>End</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cohorts.each do |cohort| %>
-      <tr>
-        <td><%= cohort.name %></td>
-        <td><%= cohort.start %></td>
-        <td><%= cohort.end %></td>
-        <td><%= link_to 'Show', cohort %></td>
-        <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
-        <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cohort', new_cohort_path %>
+<%@display_class="displayAll"%>
+<div>
+ <h1>Cohorts</h1>
+ <%= link_to 'New Cohort', new_cohort_path %>
+</div>
+   <% @cohorts.each do |cohort|%>
+     <div class="courseProfileWrap">
+    <%= cohort.name %> 
+   <%= cohort.start %>
+     <%= cohort.end %>
+     <%= link_to 'Show', cohort %>
+     <%= link_to 'Edit', edit_cohort_path(cohort) %>
+     <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %>
+     </div>
+   <% end %>
