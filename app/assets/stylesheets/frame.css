@@ -37,7 +37,7 @@ header {
   grid-row-start: content;
   grid-row-end: controls;
   /* background-color: pink; */
-  border: magenta 2px solid;
+  /* border: magenta 2px solid; */
   /* overflow-y: scroll; */
 }
 
