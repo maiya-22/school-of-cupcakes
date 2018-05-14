@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @page_title || "School of Cupcakes" %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+
+    <%= javascript_include_tag 'application', defer: true %>
+
+  </head>
+  <body>
+  <div id="flashNoticeWrap">
+    <% if !flash[:notice].blank? %>
+      <div class="notice">
+        <%= flash[:notice] %>
+        </div>
+    <%end%>
+  </div>
+  <div id="pageFrame">
+      <header>
+        <div id="siteTitleWrap">
+          <h1 id="siteTitle">Chiana&#39;s School of Cupcakes</h1>
+          </div>
+      </header>
+      <div id="displayFrame" class="displayFrameHome">
+
+          <%= yield %>
+
+      </div>
+      
+      <div id="controlsFrame">
+        <div id="controlButtonsWrap">
+          <button class="bubbly-button">teachers</button>
+          <button class="bubbly-button">students</button>
+          <button class="bubbly-button">classes</button>
+          <button class="bubbly-button">cohorts</button>
+        </div>
+        <div id="controlsContent">
+      
+        </div>
+      </div>
+      <footer>
+      
+      </footer>
+    </div>
+  </body>
+</html>
