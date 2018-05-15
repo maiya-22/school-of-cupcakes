@@ -1,6 +1,18 @@
 <h1>Editing Course</h1>
 
-<%= render 'form', course: @course %>
+<%= render 'edit_form'%>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<h1>Creating Cohort for this course:</h1>
+<%= render 'create_cohort_form'%>
+
+
+<p class="toDo">create a cohort out of this course</p>
+
+<p class="toDo">add a teacher to this cohort</p>
+
+
+
+
+<%= link_to 'see this course', @course %> ....
+<%= link_to 'all courses:', courses_path %>
+

@@ -1,6 +1,6 @@
 class CohortsController < ApplicationController
   before_action :set_cohort, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token 
   # GET /cohorts
   # GET /cohorts.json
   def index
@@ -78,6 +78,6 @@ class CohortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cohort_params
-      params.require(:cohort).permit(:name, :start, :end)
+      params.require(:cohort).permit(:name, :start, :end, :teacher_id, :course_id)
     end
 end

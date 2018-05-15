@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token 
+  
   layout "application"
 
   # note: this is not default giving me JSON when setting content-type to 'application/json'

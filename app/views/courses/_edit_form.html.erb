@@ -1,0 +1,36 @@
+
+
+
+
+<form action="/courses/<%=@course.id%>" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="hidden" name="_method" value="patch" />
+    <!-- <input type="hidden" name="authenticity_token" value="Dx1LhHE9MsDf3aVLO3lrVToS4KSbZcEJZ5del6gbiAKy+yDgeb5iprV65PKwPpOFnpXwhl5gLzanSa6GAQn57A=="
+    /> -->
+
+    <div class="field">
+        <label for="course_name">Name</label>
+        <input type="text" value="<%=@course.name%>" name="course[name]" id="course_name" />
+    </div>
+
+    <div class="field">
+        <label for="course_description">Description</label>
+        <input type="text" value="<%=@course.description%>" name="course[description]" id="course_description"
+        />
+    </div>
+
+    <div class="field">
+        <label for="course_pic">Pic</label>
+        <input type="text" value="<%=@course.pic%>"
+            name="course[pic]" id="course_pic" />
+    </div>
+
+    <div class="field">
+        <label for="course_hours">Hours</label>
+        <input type="number" value="<%=@course.hours%>" name="course[hours]" id="course_hours" />
+    </div>
+
+    <div class="actions">
+        <input type="submit" name="commit" value="Update Course" data-disable-with="Update Course" />
+    </div>
+</form>
