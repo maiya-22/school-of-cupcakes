@@ -49,7 +49,14 @@ class PagesController < ApplicationController
     # use this route to log errors with rollbar:
     # trigger test w/ postman:
     def tests
-        @cohorts = Cohort.all
+        # working
+        # listing all of the cohorts of a particular course:
+        #  @courses = Course.all
+        #  render json: @courses[0].cohorts
+        # ******************************************************************
+
+
+
         # p "COHORTS:"
         # working:
         # render json: @cohorts[0].teacher
@@ -57,7 +64,7 @@ class PagesController < ApplicationController
     #    render json: @cohorts[0].students
         # @students = Student.all
         # render json: @students[0].cohorts
-        render json: @cohorts[0].teacher
+        render plain: "testing route"
     end
 
     private

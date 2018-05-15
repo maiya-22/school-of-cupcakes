@@ -15,7 +15,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "New Student"
 
     fill_in "Age", with: @student.age
-    fill_in "Bio", with: @student.bio
+    fill_in "Profile", with: @student.profile
     fill_in "Education", with: @student.education
     fill_in "First Name", with: @student.first_name
     fill_in "Last Name", with: @student.last_name
@@ -31,7 +31,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Age", with: @student.age
-    fill_in "Bio", with: @student.bio
+    fill_in "Profile", with: @student.profile
     fill_in "Education", with: @student.education
     fill_in "First Name", with: @student.first_name
     fill_in "Last Name", with: @student.last_name

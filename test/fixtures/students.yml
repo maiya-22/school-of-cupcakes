@@ -4,7 +4,7 @@ one:
   first_name: MyString
   last_name: MyString
   pic: MyString
-  bio: MyString
+  profile: MyString
   education: MyString
   age: 1
 
@@ -12,6 +12,6 @@ two:
   first_name: MyString
   last_name: MyString
   pic: MyString
-  bio: MyString
+  profile: MyString
   education: MyString
   age: 1
