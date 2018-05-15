@@ -11,9 +11,13 @@ Rails.application.routes.draw do
     get '/pages/index_string', to: 'pages#index_string'
     get '/classes/all', to: 'courses#all'
     get '/cohorts/all', to: 'cohorts#all'
+
+    #password hint via json
+    get '/password-hint/:user_name', to: 'pages#password_hint'
+    get '/password-hint', to: 'pages#password_hint'
     # test routes for postman:
     get '/tests', to: 'pages#tests'
-
+    
 
 
   resources :students

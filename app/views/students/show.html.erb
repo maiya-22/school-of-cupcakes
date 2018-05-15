@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+STUDENT:
+
 <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
@@ -30,5 +32,13 @@
   <%= @student.age %>
 </p>
 
+</br>
+<span class ="toDo">
+WHAT CLASSES IS THIS STUDENT ENROLLED IN?  
+</br>
+ADD THIS STUDENT TO A CLASS
+</br>
+WHAT TEACHERS HAS THIS STUDENT HAD
+</span>
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

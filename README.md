@@ -1,24 +1,5 @@
-# README
+This is a learning project, to get familiar with implementing CRUD in rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Goal: to create an admin panel for a school.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Visually, I am trying to make it a toy that a kid can play with to build a baking school.

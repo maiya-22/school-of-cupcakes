@@ -1,3 +1,8 @@
+.toDo {
+  color: magenta;
+  border: solid gainsboro 1px;
+}
+
 #sign_out {
   position: absolute;
   top: 0px;
@@ -11,4 +16,44 @@
   border: none;
   background-color: greenyellow;
   padding: 1rem;
+}
+
+#signInPicture {
+  position: relative;
+}
+#hintWrap {
+  position: absolute;
+  top: 65px;
+  left: 450px;
+  width: 100px;
+  height: 100px;
+  color: white;
+  font-size: 1rem;
+  font-family: "Indie Flower", cursive;
+  line-height: 1.3rem;
+}
+.bounceAnimation {
+  animation-name: bounce;
+  animation-duration: 1s;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.opaque {
+  opacity: 1;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.popAnimation {
+  animation-name: pulse;
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }

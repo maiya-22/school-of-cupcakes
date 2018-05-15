@@ -30,15 +30,34 @@ class PagesController < ApplicationController
         redirect_to action: 'index'
     end
 
+    # note: trying to use where with strong params not working:
+    def password_hint
+        @access = Access.where(user_name: params[:user_name])[0]
+        if(@access == nil)
+            render plain: "can't find a user by that name"
+        else
+            if(@access.hint == nil)
+                render plain: "there is no hint yet"
+            else
+                render plain: @access.hint
+            end
+        end
+        
+
+    end
+
+    # use this route to log errors with rollbar:
     # trigger test w/ postman:
     def tests
         @cohorts = Cohort.all
-        p "COHORTS:"
-        p @cohorts
+        # p "COHORTS:"
         # working:
         # render json: @cohorts[0].teacher
         # working:
-       render json: @cohorts[0].students
+    #    render json: @cohorts[0].students
+        # @students = Student.all
+        # render json: @students[0].cohorts
+        render json: @cohorts[0].teacher
     end
 
     private

@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<p> COURSE: </p>
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
@@ -19,6 +20,9 @@
   <strong>Hours:</strong>
   <%= @course.hours %>
 </p>
+
+<p class="toDo">show all of the cohorts for this course</p>
+<p class="toDo">create a cohort out of this course</p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

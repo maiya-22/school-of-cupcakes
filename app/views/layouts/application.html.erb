@@ -9,6 +9,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <%= javascript_include_tag 'application', defer: true %>
 
@@ -24,10 +25,12 @@
   <% if session[:id] != nil %>
     <form id="sign_out" action="/sign-out" method="post">
       <button type="submit">log out</button>
+      Logged in as <%= session[:user_name] %>
     </form>
   <% end %>
   <div id="pageFrame">
       <header>
+        
         <a href="/"><div id="siteTitleWrap">
           <h1 id="siteTitle"><%=@page_title || ""%>Chiana&#39;s School of Cupcakes</h1>
           </div></a>
@@ -44,11 +47,13 @@
 
       <div id="controlsFrame">
         <div id="controlButtonsWrap">
+        <% if session[:id] != nil %>
           <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/teachers" : "/"%>>teachers</a></button>
           <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/students" : "/"%>>students</a></button>
           <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/courses" : "/"%>>classes</a></button>
           <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/cohorts" : "/"%>>cohorts</a></button>
         </div>
+        <%end%>
         <div id="controlsContent">
         </div>
       </div>

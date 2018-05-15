@@ -1,3 +1,5 @@
+const ajax_helpers_test_variable = true;
+
 function requestPromise(uri, method = 'GET') {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();

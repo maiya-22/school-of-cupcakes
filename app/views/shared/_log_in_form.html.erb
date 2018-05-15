@@ -1,11 +1,11 @@
 <form id="sign_in_form" action="/sign-in" method="post">
-  <div class="imgcontainer">
+  <div id="signInPicture" class="imgcontainer">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnjnyTJtSlfDwQnZidGFd3ncNWNgNhq7Rf-0uQxgD75Ao7d5hlvw" alt="" class="">
   </div>
 </br>
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="user_name" required>
+    <input type="text" id="userName" placeholder="Enter Username" name="user_name" required>
     </br>
     <label for="psw"><b>Password</b></label>
     <input type="text" placeholder="Enter Password" name="password" required>
@@ -15,9 +15,8 @@
     </br>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  <div class="container">
+    <span id="forgotPassword">password hint</span>
   </div>
 
   <%if flash[:user_error] != nil%>

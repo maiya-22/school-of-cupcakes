@@ -12,12 +12,12 @@
  *
  * require_tree .
  *= require reset
+ *= require animate
  *= require frame
  *= require main
  *= require header
  *= require display
  *= require control_pannel
- *= require animate
  *= require bubbly_button
  *= require_self
  */
