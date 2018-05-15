@@ -7,11 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require "time"
-# @student_educations = ['kintergarden', 'first grade', 'second grade', 'third grade']
+
 # pics = ['https://robohash.org/jenni', 'https://robohash.org/joe', 'https://robohash.org/charlie', 'https://robohash.org/alice']
 
+
+# CREATE ACCESSES:
+# @admin_names = ['charlie', 'chuck', 'jane', 'sally']
+# @index = 0
+# 4.times do
+#     Access.create([{
+#         user_name: @admin_names[@index],
+#         password: 'secretpassword',
+#         hint: 'What is a secret?',
+#         role: 'admin'
+#     }])
+#     @index += 1
+# end
+
+# CREATE STUDENTS
+# @student_educations = ['kintergarden', 'first grade', 'second grade', 'third grade']
 # index = 0
-# 20.times do 
+# 100.times do 
 #     @random_name = Faker::Name.first_name
 #     Student.create([{
 #         first_name: @random_name,
@@ -25,7 +41,7 @@ require "time"
 #         index+=1
 # end
 
-
+# CREATE TEACHERS
 # @teacher_educations = ['burns cookies','junior baker', 'apprenctice baker', 'master baker']
 # index = 0
 # 10.times do 
@@ -43,7 +59,7 @@ require "time"
 #         index+=1
 # end
 
-
+# CREATE COURSES
 # 10.times do 
 #     @random_name = Faker::Name.first_name
 #     Course.create([{
@@ -54,21 +70,21 @@ require "time"
 #     }])
 # end
 
-# Time.new(2002, 10, 31)
 
+# CREATE COHORTS
 # @teacher_id = 1
 # @course_id = 1
-# @day = Random.new.rand(20) + 1
-# @month = Random.new.rand(12) + 1
-# @year = Random.new.rand(1) + 2017 
 # 20.times do
-#     @start = Time.new(@year, @month, @day)
+#     @day = Random.new.rand(20) + 1
+#     @month = Random.new.rand(12) + 1
+#     @year = Random.new.rand(1) + 2017 
+#     @start = Time.new(@year, @month, @day).to_s
 #     @month = @month + 6;
 #     if(@month > 12) 
 #         @month -= 12
 #         @year += 1
 #     end
-#     @end = Time.new(@year, @month, @day)
+#     @end = Time.new(@year, @month, @day).to_s
 #     Cohort.create([{
 #         name: Faker::Dessert.flavor + " " + Faker::Dessert.variety + " Cohort",
 #         start:@start,
@@ -76,26 +92,34 @@ require "time"
 #         teacher_id: @teacher_id,
 #         course_id: @course_id
 #     }])
-
 #     @teacher_id += 1
 #     @course_id += 1
 #     if(@course_id == 11)
 #         @course_id -= 10
 #     end
-#     if(@teacher_id == 21)
-#         @teacher_id -= 20
+#     if(@teacher_id == 11)
+#         @teacher_id -= 10
 #     end
-    
 # end
 
+# ADD STUDENTS TO COHORTS
+# there are 20 cohorts
+# give each cohort 15 students
+# @cohort_id = 1
+# @student_id = 1;
+# 20.times do 
+#     15.times do
 
-# @admin_names = ['charlie', 'chuck', 'jane', 'sally']
-# @index = 0
-# 4.times do
-#     Access.create([{
-#         user_name: @admin_names[@index],
-#         password: 'secretpassword',
-#         role: 'admin'
-#     }])
-#     @index += 1
+#         CohortsStudent.create({
+#             cohort_id: @cohort_id,
+#             student_id: @student_id
+#         })
+
+#         @student_id += 1
+#         if(@student_id == 101)
+#             @student_id = 1
+#         end
+#     end
+#     @cohort_id += 1
 # end
+

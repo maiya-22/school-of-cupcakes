@@ -15,8 +15,7 @@ class PagesController < ApplicationController
         # note: trying to use where with strong params not working:
         @access = Access.where(user_name: params[:user_name], password: params[:password])[0]
         if(@access == nil)
-            # session[:does_not_exist_error] = true
-            flash[:user_error] = "THAT USER NAME OR PASSWORD DOES NOT MATCH"
+            flash[:user_error] = "That user name or password does not match"
         else
             set_session(@access)
         end
@@ -29,6 +28,17 @@ class PagesController < ApplicationController
     def sign_out
         clear_session
         redirect_to action: 'index'
+    end
+
+    # trigger test w/ postman:
+    def tests
+        @cohorts = Cohort.all
+        p "COHORTS:"
+        p @cohorts
+        # working:
+        # render json: @cohorts[0].teacher
+        # working:
+       render json: @cohorts[0].students
     end
 
     private
