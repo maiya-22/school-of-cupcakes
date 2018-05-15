@@ -4,6 +4,10 @@ class CohortsController < ApplicationController
   # GET /cohorts
   # GET /cohorts.json
   def index
+    # p Teacher.find_by_id(1)
+    # p "COHORT ______"
+    # p Cohort.find_by_id(1).teacher
+    @teacher = Teacher
     @cohorts = Cohort.all
   end
 

@@ -11,6 +11,13 @@
   animation-duration: 2s;
 }
 
+#sign_in_form {
+  width: 50%;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
 .topicFrame {
   border: dotted turquoise 5px;
   overflow-y: scroll;

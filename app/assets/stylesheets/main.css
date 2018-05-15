@@ -1,0 +1,14 @@
+#sign_out {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 5rem;
+  padding: 1rem;
+}
+
+#sign_out button {
+  background: none;
+  border: none;
+  background-color: greenyellow;
+  padding: 1rem;
+}

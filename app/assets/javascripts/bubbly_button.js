@@ -11,12 +11,16 @@ const animateButton = function (e) {
 
 const bubblyButtons = document.getElementsByClassName('bubbly-button');
 
+// document.addEventListener("turbolinks:request-start", function(event) {
+
+// });
+
 for (let i = 0; i < bubblyButtons.length; i++) {
   bubblyButtons[i].addEventListener('click', animateButton, false);
-  //   customization: trigger bubbly animation on page load:
-  //   setTimeout(() => {
-  //     simulateClick(bubblyButtons[i]);
-  //   }, 1200);
+  // customization: trigger bubbly animation on page load:
+  setTimeout(() => {
+    simulateClick(bubblyButtons[i]);
+  }, 500);
 }
 
 // customization:

@@ -21,6 +21,11 @@
         </div>
     <%end%>
   </div>
+  <% if session[:id] != nil %>
+    <form id="sign_out" action="/sign-out" method="post">
+      <button type="submit">log out</button>
+    </form>
+  <% end %>
   <div id="pageFrame">
       <header>
         <a href="/"><div id="siteTitleWrap">
@@ -29,16 +34,20 @@
       </header>
       <div id="displayFrame" class=<%=@display_class || "displayFrameHome"%>>
 
+        <% if session[:id] != nil %>
           <%= yield %>
+        <%else%>
+          <%= render "shared/log_in_form" %>
+        <%end%>
 
       </div>
 
       <div id="controlsFrame">
         <div id="controlButtonsWrap">
-        <button class="bubbly-button"><a href="/teachers">teachers</a></button>
-          <button class="bubbly-button"><a href="/students">students</a></button>
-          <button class="bubbly-button"><a href="/courses">classes</a></button>
-          <button class="bubbly-button"><a href="/cohorts">cohorts</a></button>
+          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/teachers" : "/"%>>teachers</a></button>
+          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/students" : "/"%>>students</a></button>
+          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/courses" : "/"%>>classes</a></button>
+          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/cohorts" : "/"%>>cohorts</a></button>
         </div>
         <div id="controlsContent">
         </div>

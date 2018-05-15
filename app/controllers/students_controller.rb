@@ -11,7 +11,6 @@ class StudentsController < ApplicationController
   end
 
   def all
-  # note: why won't it let you loop through these objects and add some property before sending back to DOM?
    render json: Student.all
   end
 

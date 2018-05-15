@@ -8,8 +8,15 @@
     <%= cohort.name %> 
    <%= cohort.start %>
      <%= cohort.end %>
+     <%if cohort.teacher_id != nil %>
+      *****  TEACHER:
+      <%= cohort.teacher.first_name %>
+     <%else%>
+      "this cohort needs a teacher assinged"
+     <%end%>
+   
      <%= link_to 'Show', cohort %>
-     <%= link_to 'Edit', edit_cohort_path(cohort) %>
+     <%= link_to 'Edit',  "cohorts/#{cohort.id}/edit"  %>
      <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %>
      </div>
    <% end %>
