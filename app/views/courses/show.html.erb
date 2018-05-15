@@ -21,7 +21,14 @@
   <%= @course.hours %>
 </p>
 
-<p class="toDo">show all of the cohorts for this course</p>
+<h3>cohorts for the course:</h3>
+<div>
+</br>
+<%@course.cohorts.each do |cohort|%>
+   <div><%=cohort.name%></div>
+   <button><a href="#">link to show cohort</a></button>
+  <%end%>
+  </div>
 <p class="toDo">create a cohort out of this course</p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
