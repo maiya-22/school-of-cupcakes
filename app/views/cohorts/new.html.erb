@@ -1,9 +1,7 @@
 <h1>New Cohort</h1>
 
 
-# <%= render 'form', cohort: @cohort %>
 
-# <h1>New Cohort</h1>
 
 <form action="/cohorts" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="68dUfxJAW0mRT0P5IxP1mkuRhcFRCwdOqtQaN4Hj6uirbIqaIlHWzpSKZJ/IdAZgv8LJ+LaYy50a8Xzv1npmLg==" />
 
@@ -12,14 +10,28 @@
     <input type="text" name="cohort[name]" id="cohort_name" />
   </div>
 
-  <div class="field">
-    <label for="course_id">course_id</label>
-    <input type="text" name="cohort[course_id]" id="course_id" />
-  </div>
+
 
   <div class="field">
-    <label for="course_id">teacher_id</label>
-    <input type="text" name="cohort[teacher_id]" id="teacher_id" />
+  <label for="course_id">class:</label>
+    <select name="cohort[course_id]">
+      <% @courses = Course.all %>
+      <%@courses.each do |course|%>
+        <option value="<%=course.id%>"><%=course.name%></option>
+      <%end%>
+  </select>
+</div>
+
+
+
+  <div class="field">
+    <label for="teacher_id">teacher:</label>
+      <select name="cohort[teacher_id]">
+        <% @teachers = Teacher.all %>
+        <%@teachers.each do |teacher|%>
+          <option value="<%=teacher.id%>"><%=teacher.first_name + " " + teacher.last_name + " title: " + teacher.education%></option>
+        <%end%>
+    </select>
   </div>
 
   <div class="field">

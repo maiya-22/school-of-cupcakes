@@ -27,6 +27,7 @@ class PagesController < ApplicationController
 
     def sign_out
         clear_session
+        flash[:good_bye] = "Good 'bye!"
         redirect_to action: 'index'
     end
 
@@ -42,29 +43,39 @@ class PagesController < ApplicationController
                 render plain: @access.hint
             end
         end
-        
-
     end
 
     # use this route to log errors with rollbar:
     # trigger test w/ postman:
     def tests
-        # working
+        # ******************************************************************
         # listing all of the cohorts of a particular course:
         #  @courses = Course.all
         #  render json: @courses[0].cohorts
         # ******************************************************************
-
-
-
-        # p "COHORTS:"
-        # working:
+        # getting all of the students from a particular cohort:
+        # @cohorts = Cohort.all
+        # render json: @cohorts[0].students
+        # ******************************************************************
+        # getting the teacher of a cohort:
+        # @cohorts = Cohort.all
         # render json: @cohorts[0].teacher
-        # working:
-    #    render json: @cohorts[0].students
+        # ******************************************************************
+        # getting the cohorts that a student is taking:
         # @students = Student.all
         # render json: @students[0].cohorts
-        render plain: "testing route"
+        # ******************************************************************
+        # adding a teacher to a cohort:
+        @info = {}
+        @teacher = Teacher.where(id: 1)[0]
+        @info["thisteacher"] = @teacher
+        @cohort = Cohort.where(id: 2)[0]
+        @info["previousteacher"] = @cohort.teacher
+        @cohort.teacher = @teacher
+        @info["newcohortstatus"] = @cohort
+        @info["newteacher"] = @cohort.teacher
+        render json: @info
+        # render plain: "testing route"
     end
 
     private

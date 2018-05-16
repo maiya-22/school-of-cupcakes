@@ -1,9 +1,33 @@
 <h1>Editing Teacher</h1>
 
-<%= render 'form', teacher: @teacher %>
+<%= render 'edit_teacher_form' %>
 
-<p class="toDo">Add the teacher to a cohort</p>
-<p class="toDo">see all the cohorts is teaching</p>
 
-<%= link_to 'back to this teacher', @teacher %> |
+<p>courses the teacher is teaching</p>
+
+<%@cohorts = Cohort.where(teacher_id: @teacher.id)%>
+<%@cohorts.each do |cohort|%>
+   <p> *** Cohort: <%= cohort.name %> ***</p>
+<%end%>
+
+
+<form action="/teacher/<%=@teacher.id%>/cohort" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+<input type="hidden" name="authenticity_token" value="Hpz8UD63fJxpiDxsTOosP6IGTMPJjzEwylNXYfRJMFWWlqntVUIGf7SzYFg2AwMvU5uyViRvE4lSOUkRHDZ6hQ==" />
+<input type="hidden" name="_method" value="patch">
+<select name="cohort_id">
+  <% Cohort.all.each do |cohort|%>
+    <option value="<%=cohort.id%>" ><%=cohort.name%></option>
+  <% end %>
+</select>
+<div class="actions">
+  <input type="submit" name="commit" value="Add cohort to teacher" data-disable-with="Update Teacher" />
+</div>
+</form>
+
+
+
+
+
+
+<%= link_to 'view this teacher', @teacher %> |
 <%= link_to 'back to all teachers', teachers_path %>

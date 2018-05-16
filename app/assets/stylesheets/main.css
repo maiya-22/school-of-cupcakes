@@ -21,7 +21,8 @@
 #signInPicture {
   position: relative;
 }
-#hintWrap {
+#hintWrap,
+#goodByeWrap {
   position: absolute;
   top: 65px;
   left: 450px;
@@ -31,6 +32,9 @@
   font-size: 1rem;
   font-family: "Indie Flower", cursive;
   line-height: 1.3rem;
+}
+
+#goodByeWrap {
 }
 .bounceAnimation {
   animation-name: bounce;

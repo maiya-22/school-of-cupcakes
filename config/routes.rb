@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     post '/sign-in', to: 'pages#sign_in'
     post '/sign-out', to: 'pages#sign_out'
 
+    # add a teacher to a cohort, via the teacher model (and return to view teacher)
+    patch '/teacher/:id/cohort', to: 'teachers#add_to_cohort'
+
     # temp json routes:
     get '/students/all', to: 'students#all'
     get '/teachers/all', to: 'teachers#all'

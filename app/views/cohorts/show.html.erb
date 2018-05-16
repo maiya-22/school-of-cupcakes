@@ -16,8 +16,13 @@
   <%= @cohort.end %>
 </p>
 
-<span class="toDo"> SHOW THE TEACHER OF THE COHORT</span>
-<span class="toDo"> SHOW THE STUDENTS IN THE COHORT  show these automatically.  no button</span>
+
+
+<span> TEACHER: <%= @cohort.teacher.first_name%></span>
+HELLO:
+<% @cohort.students.each do |student|%>
+  <%= student.first_name + " " + student.last_name %>
+<%end%>
 
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

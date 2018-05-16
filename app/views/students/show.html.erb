@@ -33,13 +33,19 @@ STUDENT:
 </p>
 
 </br>
+
+WHAT COHORT IS THIS STUDENT ENROLLED IN?  
+
+<%@student.cohorts.each do |cohort|%>
+  <%=cohort.name%>
+<%end%>
 <span class ="toDo">
-<pre>
-  WHAT COHORT IS THIS STUDENT ENROLLED IN?  
+
+
      ...
   ADD THIS STUDENT TO A COHORT
     have this be a button to the edit form, with certain fields highlighted (show cohorts, and add to cohort)
-</pre>
+
 </span>
 <%= link_to 'edit', edit_student_path(@student) %> 
 <%= link_to 'all students', students_path %>

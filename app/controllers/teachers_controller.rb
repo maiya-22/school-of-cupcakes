@@ -1,7 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token  
-  
+skip_before_action :verify_authenticity_token  
   # GET /teachers
   # GET /teachers.json
   def index
@@ -16,6 +15,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    # @teacher = params[:id]
   end
 
   # GET /teachers/new
@@ -57,6 +57,32 @@ class TeachersController < ApplicationController
     end
   end
 
+   # CUSTOM ROUTE:
+  # ADD A TEACHER TO A COHORT, and then view the teacher:
+  # PATCH /teacher/:id/course
+  def add_to_cohort
+
+    # @teacher = Teacher.where(id: params[:id])[0]
+    # @cohort = Cohort.where(id: params[:cohort_id])[0]
+    # @info["previousteacher"] = @cohort.teacher
+    # @cohort.teacher = @teacher
+    # @info["newcohortstatus"] = @cohort
+    # @info["newteacher"] = @cohort.teacher
+    # render json: @info
+
+
+
+    p "**********PARAMS**************"
+    p params
+    @cohort = Cohort.find_by_id(params[:cohort_id])
+    @teacher = Teacher.find_by_id(params[:id])
+    @cohort.update_attributes(teacher_id: @teacher.id)
+
+    # render json: @cohort
+    redirect_to action: "show", id: params[:id]
+  end
+
+
   # DELETE /teachers/1
   # DELETE /teachers/1.json
   def destroy
@@ -67,6 +93,7 @@ class TeachersController < ApplicationController
     end
   end
 
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher

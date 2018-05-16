@@ -30,9 +30,10 @@
   <%= @teacher.salary %>
 </p>
 
-<p class="toDo">show what cohorts the teacher is teaching </p>
-<p class="toDo"> add the teacher to a cohort </p>
-<p class="toDo"> remove the teacher. show a warning, and re-route to all teachers </p>
+COHORTS:
+<%@teacher.cohorts.each do |cohort|%>
+  ** <%=cohort.name%> **
+<%end%>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Edit or add teacher to cohort', edit_teacher_path(@teacher) %> |
 <%= link_to 'all teachers', teachers_path %>

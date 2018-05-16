@@ -11,6 +11,8 @@ require "time"
 # pics = ['https://robohash.org/jenni', 'https://robohash.org/joe', 'https://robohash.org/charlie', 'https://robohash.org/alice']
 
 
+# create the teacher and course for id 1 to be the default place-holders
+
 # CREATE ACCESSES:
 # @admin_names = ['charlie', 'chuck', 'jane', 'sally']
 # @index = 0

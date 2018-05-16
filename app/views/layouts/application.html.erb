@@ -36,7 +36,6 @@
           </div></a>
       </header>
       <div id="displayFrame" class=<%=@display_class || "displayFrameHome"%>>
-
         <% if session[:id] != nil %>
           <%= yield %>
         <%else%>

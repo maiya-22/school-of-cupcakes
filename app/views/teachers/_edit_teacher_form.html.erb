@@ -1,0 +1,47 @@
+
+<form action="/teachers/<%=@teacher.id%>" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+<input type="hidden" name="authenticity_token" value="Hpz8UD63fJxpiDxsTOosP6IGTMPJjzEwylNXYfRJMFWWlqntVUIGf7SzYFg2AwMvU5uyViRvE4lSOUkRHDZ6hQ==" />
+<input type="hidden" name="_method" value="patch">
+<div class="field">
+  <label for="teacher_first_name">First name</label>
+  <input type="text" name="teacher[first_name]" id="teacher_first_name" value="<%=@teacher.first_name%>"/>
+</div>
+
+<div class="field">
+  <label for="teacher_last_name">Last name</label>
+  <input type="text" name="teacher[last_name]" id="teacher_last_name" value="<%=@teacher.last_name%>" />
+</div>
+<div class="field">
+  <label for="teacher_education">Education</label>
+    
+  <select name="teacher[education]" id="teacher_education">
+  <%["burns cookies", "junior baker", "apprentice baker","master baker"].each do |education|%>
+    <%if @teacher.education == education%>
+        <option value="<%=education%>" selected><%=education%></option>
+    <%else%>
+        <option value="<%=education%>"><%=education%></option>
+    <%end%>
+  <% end %>
+  </select>
+</div>
+
+<div class="field">
+  <label for="teacher_age">birthday</label>
+  <input type="number" name="teacher[age]" id="teacher_age" value="<%=@teacher.age%>" />
+</div>
+
+<div class="field">
+  <label for="teacher_profile">Profile</label>
+  <input type="text" name="teacher[profile]" id="teacher_profile" value="<%=@teacher.profile%>"/>
+</div>
+
+
+<div class="field">
+  <label for="teacher_salary">Salary</label>
+  <input type="text" name="teacher[salary]" id="teacher_salary" value="<%=@teacher.salary%>" />
+</div>
+
+<div class="actions">
+  <input type="submit" name="commit" value="Edit Teacher" data-disable-with="Update Teacher" />
+</div>
+</form>

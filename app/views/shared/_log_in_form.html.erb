@@ -1,5 +1,8 @@
 <form id="sign_in_form" action="/sign-in" method="post">
   <div id="signInPicture" class="imgcontainer">
+    <%if flash[:good_bye] != nil%>
+        <div id="goodByeWrap"><%=flash[:good_bye]%></div>
+    <%end%>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnjnyTJtSlfDwQnZidGFd3ncNWNgNhq7Rf-0uQxgD75Ao7d5hlvw" alt="" class="">
   </div>
 </br>
