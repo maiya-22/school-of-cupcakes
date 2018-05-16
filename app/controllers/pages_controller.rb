@@ -47,6 +47,7 @@ class PagesController < ApplicationController
 
     # use this route to log errors with rollbar:
     # trigger test w/ postman:
+    # get '/tests',
     def tests
         # ******************************************************************
         # listing all of the cohorts of a particular course:
@@ -70,8 +71,28 @@ class PagesController < ApplicationController
         # @cohort = Cohort.find_by_id(2)
         # @cohort.students.delete(@student)
         # render json: {student: @student, cohort: @cohort, students: @cohort.students}
-       
-        render plain: "testing route"
+        # ******************************************************************
+        # adding a student to a cohort:
+        @info = {}
+        @cohort = Cohort.find_by_id(9)
+        @info[:startingcohort] = @cohort
+        @students = @cohort.students
+        @info[:startingstudents] = @students
+        @new_student = Student.find_by_id(20)
+        @info[:newstudent] = @new_student
+        @cohort.students << @new_student
+        @info[:newstudents] = @cohort.students
+        render json: @info
+        # render plain: "testing route"
+    end
+
+    # how to get and set a query string and get it here?
+    def post_test
+        p "request"
+        p request.request_uri
+        # p URI.parse(url)
+        # params = CGI.parse(uri.query)
+        render plain: "posts testing route"
     end
 
     private

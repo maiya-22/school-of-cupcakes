@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     patch '/teacher/:id/cohort', to: 'teachers#add_to_cohort'
     # made crazy route temporarily, so that ajax will work.  need to debug:
     patch '/cohorts/:cohort_id/cohorts/:random_error/students/:student_id', to: 'cohorts#remove_student'
+    # add a student to a course via ajax
+    # to do: make this route better structured
+    patch '/add/cohorts/:cohort_id/students/:student_id/', to: 'cohorts#add_student'
+
+
+    # weird route for crazy error: check starting forward slashes of urls
+    get '/posttests/*ids', to: 'pages#post_test'
+
 
     # temp json routes:
     get '/students/all', to: 'students#all'

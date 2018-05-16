@@ -74,13 +74,23 @@ class CohortsController < ApplicationController
   # CUSTOM ROUTE:
   # removing a student from a cohort, but not deleting the student:
   def remove_student
-    @student =  Student.find_by_id(params[:student_id])
+    @student = Student.find_by_id(params[:student_id])
     @cohort = Cohort.find_by_id(params[:cohort_id])
     if(@student != nil && @cohort != nil)
       @cohort.students.delete(@student)
     end
     # how to set message and text on response here?
     render plain: "attempted to delete student from course"
+  end
+
+  def add_student
+    @student = Student.find_by_id(params[:student_id])
+    @cohort = Cohort.find_by_id(params[:cohort_id])
+    if(@student != nil && @cohort != nil)
+      @cohort.students << @student
+    end
+    # how to set message and text on response here?
+    render plain: "attempted to add student to course"
   end
 
   private

@@ -92,45 +92,77 @@ if (removeStudentFromCohortContainer) {
   });
 }
 
-// Add a group of students to a cohort from the cohort edit page:
-
-const addStudentsButton = document.getElementById('addStudents');
-if (addStudentsButton) {
-  addStudentsButton.addEventListener('click', (e) => {
-    // how to do a nested search inside an element i've already grabbed?
-    const allStudents = document.getElementsByClassName('studentSelect');
-    const selectedStudentIds = [];
-    for (let i = 0; i < allStudents.length; i++) {
-      const student = allStudents[i];
-      const studentId = student.value;
-      if (student.checked == true) {
-        selectedStudentIds.push(studentId);
-      }
+// Add student to cohort on the cohort edit page:
+const addStudentToCohortContainer = document.getElementById('addStudentsToCohort');
+if (addStudentToCohortContainer) {
+  addStudentToCohortContainer.addEventListener('click', (e) => {
+    const { target } = e;
+    if (target.classList.contains('ajaxAdd')) {
+      const id = target.id.split('-');
+      const cohortId = id[1];
+      const studentId = id[3];
+      console.log(cohortId, studentId);
+      // "/cohorts/8/cohorts/8/students/9"
+      // to do: need to figure out why this route is doubling the first part: (check content-type)
+      requestPromise(`/add/cohorts/${cohortId}/students/${studentId}/`, 'PATCH')
+        .then((response) => {
+          location.reload();
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-    console.log(selectedStudentIds);
   });
 }
 
-function practicePostPromise(uri, body, method = 'POST') {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open(method, uri);
-    // to do: fix the content-type:  why was in not causing default json files?
-    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader
-    xhr.setRequestHeader('Content-Type', 'json');
-    xhr.send(body);
-    xhr.onload = function () {
-      // resolve(JSON.stringify(xhr.responseText));
-      resolve(xhr.responseText);
-    };
-    xhr.onerror = function () {
-      reject(xhr.statusText);
-    };
-  });
-}
+// // every requst is starting with /cohorts/8/ why?
+// function practicePromiseTwo(uri, method = 'GET') {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
+//     xhr.open(method, uri);
+//     // to do: fix the content-type:  why was in not causing default json files?
+//     // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader
+//     xhr.setRequestHeader('Content-Type', 'json');
+//     xhr.send();
+//     xhr.onload = function () {
+//       // resolve(JSON.stringify(xhr.responseText));
+//       resolve(xhr.responseText);
+//     };
+//     xhr.onerror = function () {
+//       reject(xhr.statusText);
+//     };
+//   });
+// }
+
+// Add a group of students to a cohort from the cohort edit page:
 
 const addStudentsContainer = document.getElementById('addStudentsContainer');
 // click on button
 // see which items are checked
 // go to route that adds the students to the cohort
 // reload the page:
+// const addStudentsButton = document.getElementById('addStudents');
+// if (addStudentsButton) {
+//   addStudentsButton.addEventListener('click', (e) => {
+//     // how to do a nested search inside an element i've already grabbed?
+//     const allStudents = document.getElementsByClassName('studentSelect');
+//     const selectedStudentIds = [];
+//     for (let i = 0; i < allStudents.length; i++) {
+//       const student = allStudents[i];
+//       const studentId = student.value;
+//       if (student.checked == true) {
+//         selectedStudentIds.push(studentId);
+//       }
+//     }
+
+//     practicePromiseTwo('/posttests/1/there?name=ferre')
+//       .then((response) => {
+//         console.log(response);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//     console.log(selectedStudentIds);
+//   });
+// }
