@@ -163,15 +163,21 @@
 #removeStudentsFromCohort {
   color: black;
 }
-#addStudentsToCohort div {
+#addStudentsToCohort div,
+#removeStudentsFromCohort div {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
 }
-#addStudentsToCohort div button {
+#addStudentsToCohort div button,
+#removeStudentsFromCohort div button {
   border-radius: 50%;
   color: gray;
   border: none;
   padding: 0.5rem;
   background-color: rgb(47, 255, 220);
+}
+
+#removeStudentsFromCohort div button {
+  background-color: rgb(168, 223, 213);
 }

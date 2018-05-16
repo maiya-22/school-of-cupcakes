@@ -12,19 +12,19 @@
   </div>
 
   <div id="removeStudentsFromCohort">
-  <p>All Students Cohort: </p>
-  <div id="remoeStudentsFromCohort">
-  <%if @cohort.students.length != 0%>
-      <% @cohort.students.each do |student|%>
-          <div> 
-              <%=student.first_name + " " + student.last_name%>
-              <button class="ajaxDelete" id="cohort-<%=@cohort.id%>-student-<%=student.id%>"">ajax delete x</button>
-          </div>
-      <%end%>
-  <%else%>
-          <div> ***  no students yet  ****</div>
-  <%end%>
-  </div>
+    <p>All Students Cohort: </p>
+    
+    <%if @cohort.students.length != 0%>
+        <% @cohort.students.each do |student|%>
+            <div> 
+                <%=student.first_name + " " + student.last_name%>
+                <button class="ajaxDelete" id="cohort-<%=@cohort.id%>-student-<%=student.id%>"">x</button>
+            </div>
+        <%end%>
+    <%else%>
+            <div> ***  no students yet  ****</div>
+    <%end%>
+   
   </div>
 
 
@@ -41,17 +41,6 @@
       <%end%>
     </div>
   </div>
-
-  <!--  make this work with ajax
-  <div class="addStudentsContainer toDo" >
-    <%Student.all.each do |student|%>
-      <%if ! @cohort.students.include?(student) %>
-          <input class="studentSelect" type="checkbox" name="students[student_id]" value="<%=student.id%>"><%=student.first_name + " " + student.last_name%><br>
-      <%end%>
-    <%end%>
-    <button id="addStudents">add students</button>
-  </div>
-  -->
 
 
 
