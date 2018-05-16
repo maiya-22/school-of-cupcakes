@@ -3,16 +3,28 @@
 
 <p> add and remove a teacher</p>
 <p> see the students add a student</p>
-<%= render 'form', cohort: @cohort %>
-<span class="toDo">
-    <pre>
-        add or change the teacher
-        automatically display the students.  button to remove a student
-        field to add a student
-    </pre>
-</span>
+<%= render 'edit_cohort_form',cohort: @cohort %>
+
+<%if @cohort.students.length != 0%>
+    <% @cohort.students.each do |student|%>
+        <div> <%=student.first_name + " " + student.last_name%>
+        <button class="toDo" data-student-id="<%=student.id%>">ajax delete x</button></div>
+    <%end%>
+<%else%>
+        <p> ***  no students yet  ****</p>
+<%end%>
+
+<div class="toDo" action="#">
+  <%Student.all.each do |student|%>
+    <%if ! @cohort.students.include?(student) %>
+        <input type="checkbox" name="students[student_id]" value="<%=student.id%>"><%=student.first_name + " " + student.last_name%><br>
+    <%end%>
+  <%end%>
+  <button id="addStudents">add students</button>
+</div>
 
 
+<a href="/students/new">create a student</a>
 
 <%= link_to 'Show', @cohort %> |
 <%= link_to 'Back', cohorts_path %>

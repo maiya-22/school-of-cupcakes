@@ -7,6 +7,12 @@
 </p>
 
 <p>
+  <strong>Course:</strong>
+  <%= @cohort.course.name %>
+</p>
+
+
+<p>
   <strong>Start:</strong>
   <%= @cohort.start %>
 </p>
@@ -19,7 +25,7 @@
 
 
 <span> TEACHER: <%= @cohort.teacher.first_name%></span>
-HELLO:
+All of the students::
 <% @cohort.students.each do |student|%>
   <%= student.first_name + " " + student.last_name %>
 <%end%>

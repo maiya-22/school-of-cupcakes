@@ -45,3 +45,10 @@ if (passwordHintButton) {
       });
   });
 }
+
+// TO DO: ajax remove student from class
+
+// TO DO: ajax add students to class
+// document.getElementById("myCheck").checked = false;
+// get all of the checked student ids, do an ajax call
+// to add them to the page, re-load the current page w js
