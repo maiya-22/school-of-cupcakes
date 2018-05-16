@@ -114,6 +114,39 @@
 
 /* EDIT A COHORT: */
 
+#editCohortWrap {
+  /* border: solid magenta 4px; */
+  width: 100%;
+  display: inline;
+  text-align: left;
+}
+
+#editCohortBody {
+  /* border: solid orange 5px; */
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#editCohortFormWrap {
+  padding: 1rem;
+}
+
+#editCohortFormWrap div {
+  padding: 0.5rem;
+}
+.displayEdit {
+  display: block;
+  position: relative;
+  border: solid pink 3px;
+}
+#cohortEditHeader {
+  position: absolute;
+  top: 0px;
+  display: inline;
+  width: 30%;
+}
+
 #addStudentsToCohortWrap,
 #removeStudentsToCohortWrap {
   padding: 1rem;
