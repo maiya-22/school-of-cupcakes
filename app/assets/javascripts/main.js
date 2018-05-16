@@ -14,6 +14,7 @@ if (signInPicture) {
   });
 }
 
+// error need to figure out why I can't use this funciton from the ajax helpers page:
 function requestPromise(uri, method = 'GET') {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -77,6 +78,7 @@ if (removeStudentFromCohortContainer) {
       requestPromise(`cohorts/${cohortId}/students/${studentId}`, 'PATCH')
         .then((response) => {
           console.log(response);
+          location.reload();
         })
         .catch((err) => {
           console.log(err);
