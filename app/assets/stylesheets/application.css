@@ -26,3 +26,13 @@
 .bubbly-button {
   margin: 0px;
 }
+
+#wrapAll {
+  width: 100%;
+  /* height: 10px; */
+  border: solid magenta 3xp;
+  /* background-color: green; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

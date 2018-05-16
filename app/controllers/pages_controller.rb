@@ -73,17 +73,17 @@ class PagesController < ApplicationController
         # render json: {student: @student, cohort: @cohort, students: @cohort.students}
         # ******************************************************************
         # adding a student to a cohort:
-        @info = {}
-        @cohort = Cohort.find_by_id(9)
-        @info[:startingcohort] = @cohort
-        @students = @cohort.students
-        @info[:startingstudents] = @students
-        @new_student = Student.find_by_id(20)
-        @info[:newstudent] = @new_student
-        @cohort.students << @new_student
-        @info[:newstudents] = @cohort.students
-        render json: @info
-        # render plain: "testing route"
+        # @info = {}
+        # @cohort = Cohort.find_by_id(9)
+        # @info[:startingcohort] = @cohort
+        # @students = @cohort.students
+        # @info[:startingstudents] = @students
+        # @new_student = Student.find_by_id(20)
+        # @info[:newstudent] = @new_student
+        # @cohort.students << @new_student
+        # @info[:newstudents] = @cohort.students
+        # render json: @info
+        render plain: "testing route"
     end
 
     # how to get and set a query string and get it here?

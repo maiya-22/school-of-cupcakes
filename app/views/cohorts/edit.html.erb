@@ -4,6 +4,8 @@
 
 ALL THE STUDENTS IN THE COHORT:
 <div id="removeStudentsFromCohort">
+<p>All Students Cohort: </p>
+<div id="remoeStudentsFromCohort">
 <%if @cohort.students.length != 0%>
     <% @cohort.students.each do |student|%>
         <div> 
@@ -15,15 +17,21 @@ ALL THE STUDENTS IN THE COHORT:
         <div> ***  no students yet  ****</div>
 <%end%>
 </div>
+</div>
 
-<div id="addStudentsToCohort" class="toDo">
-  <%Student.all.each do |student|%>
-    <%if ! @cohort.students.include?(student) %>
-         <div id="<%=student.id%>"><%=student.first_name + " " + student.last_name%>
-         <button class="ajaxAdd" id="cohort-<%=@cohort.id%>-student-<%=student.id%>"">ajax add +</button>
-         </div>
+
+
+<div id="addStudentsToCohortWrap">
+      <p>Add Students to Cohort: </p>
+  <div id="addStudentsToCohort" class="">
+    <%Student.all.each do |student|%>
+      <%if ! @cohort.students.include?(student) %>
+          <div id="<%=student.id%>"><%=student.first_name + " " + student.last_name%>
+          <button class="ajaxAdd" id="cohort-<%=@cohort.id%>-student-<%=student.id%>"">add</button>
+          </div>
+      <%end%>
     <%end%>
-  <%end%>
+  </div>
 </div>
 
 <!--  make this work with ajax
