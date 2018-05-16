@@ -16,10 +16,10 @@ ALL THE STUDENTS IN THE COHORT:
 <%end%>
 </div>
 
-<div class="toDo" action="#">
+<div class="addStudentsContainer toDo" action="#">
   <%Student.all.each do |student|%>
     <%if ! @cohort.students.include?(student) %>
-        <input type="checkbox" name="students[student_id]" value="<%=student.id%>"><%=student.first_name + " " + student.last_name%><br>
+        <input class="studentSelect" type="checkbox" name="students[student_id]" value="<%=student.id%>"><%=student.first_name + " " + student.last_name%><br>
     <%end%>
   <%end%>
   <button id="addStudents">add students</button>

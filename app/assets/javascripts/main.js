@@ -15,10 +15,13 @@ if (signInPicture) {
 }
 
 // error need to figure out why I can't use this funciton from the ajax helpers page:
+// try re-naming this function and re-sending it w/new name:
 function requestPromise(uri, method = 'GET') {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open(method, uri);
+    // to do: fix the content-type:  why was in not causing default json files?
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader
     xhr.setRequestHeader('Content-Type', 'json');
     xhr.send();
     xhr.onload = function () {
@@ -63,7 +66,7 @@ if (passwordHintButton) {
   });
 }
 
-// TO DO: ajax remove student from class
+// Remove student from cohort on the cohort edit page:
 const removeStudentFromCohortContainer = document.getElementById('removeStudentsFromCohort');
 if (removeStudentFromCohortContainer) {
   removeStudentFromCohortContainer.addEventListener('click', (e) => {
@@ -74,7 +77,7 @@ if (removeStudentFromCohortContainer) {
       const studentId = id[3];
       console.log(cohortId, studentId);
       // "/cohorts/8/cohorts/8/students/9"
-      // to do: need to figure out why this route is doubling the first part:
+      // to do: need to figure out why this route is doubling the first part: (check content-type)
       requestPromise(`cohorts/${cohortId}/students/${studentId}`, 'PATCH')
         .then((response) => {
           console.log(response);
@@ -88,3 +91,46 @@ if (removeStudentFromCohortContainer) {
     }
   });
 }
+
+// Add a group of students to a cohort from the cohort edit page:
+
+const addStudentsButton = document.getElementById('addStudents');
+if (addStudentsButton) {
+  addStudentsButton.addEventListener('click', (e) => {
+    // how to do a nested search inside an element i've already grabbed?
+    const allStudents = document.getElementsByClassName('studentSelect');
+    const selectedStudentIds = [];
+    for (let i = 0; i < allStudents.length; i++) {
+      const student = allStudents[i];
+      const studentId = student.value;
+      if (student.checked == true) {
+        selectedStudentIds.push(studentId);
+      }
+    }
+    console.log(selectedStudentIds);
+  });
+}
+
+function practicePostPromise(uri, body, method = 'POST') {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, uri);
+    // to do: fix the content-type:  why was in not causing default json files?
+    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader
+    xhr.setRequestHeader('Content-Type', 'json');
+    xhr.send(body);
+    xhr.onload = function () {
+      // resolve(JSON.stringify(xhr.responseText));
+      resolve(xhr.responseText);
+    };
+    xhr.onerror = function () {
+      reject(xhr.statusText);
+    };
+  });
+}
+
+const addStudentsContainer = document.getElementById('addStudentsContainer');
+// click on button
+// see which items are checked
+// go to route that adds the students to the cohort
+// reload the page:
