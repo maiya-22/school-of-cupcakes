@@ -26,7 +26,7 @@
 </br>
 <%@course.cohorts.each do |cohort|%>
    <div><%=cohort.name%></div>
-   <button><a href="#">link to show cohort</a></button>
+   <button><a href="/cohorts/<%=cohort.id%>">link to show cohort</a></button>
   <%end%>
   </div>
 

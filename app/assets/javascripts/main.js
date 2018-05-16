@@ -47,6 +47,12 @@ if (passwordHintButton) {
 }
 
 // TO DO: ajax remove student from class
+const removeStudentFromClass = document.getElementsByClassName('');
+// if there is a click on the ajax delete button, get the student=id from that
+// button data
+// send a delete to the server
+// get a response back that the student was deleted
+// update the view
 
 // TO DO: ajax add students to class
 // document.getElementById("myCheck").checked = false;

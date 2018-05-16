@@ -2,8 +2,18 @@
 
 <%= render 'form', student: @student %>
 
-<p class="toDo">see what cohorts the student is in</p>
-<p class="toDo">remove the student from a cohort</p>
-<p class="toDo">add this student to a cohort</p>
+
+
+
+COHORTS:
+<%if @student.cohorts.length > 0%>
+    <%@student.cohorts.each do |cohort|%>
+        <a href="/cohorts/<%=cohort.id%>/edit"><%=cohort.name%></a> </br>
+    <%end%>
+<% else %>
+    <p>"Not registerd for class yet"</p>
+<%end%>
+
+
 <%= link_to 'Show', @student %> |
 <%= link_to 'Back', students_path %>

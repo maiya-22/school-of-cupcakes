@@ -35,5 +35,7 @@ COHORTS:
   ** <%=cohort.name%> **
 <%end%>
 
-<%= link_to 'Edit or add teacher to cohort', edit_teacher_path(@teacher) %> |
+<a href="/cohorts/new">create a new cohort</a>
+
+<%= link_to 'Edit  teacher', edit_teacher_path(@teacher) %> |
 <%= link_to 'all teachers', teachers_path %>
