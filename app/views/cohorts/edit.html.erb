@@ -1,18 +1,20 @@
 <h1>Editing Cohort</h1>
 
-
-<p> add and remove a teacher</p>
-<p> see the students add a student</p>
 <%= render 'edit_cohort_form',cohort: @cohort %>
 
+ALL THE STUDENTS IN THE COHORT:
+<div id="removeStudentsFromCohort">
 <%if @cohort.students.length != 0%>
     <% @cohort.students.each do |student|%>
-        <div> <%=student.first_name + " " + student.last_name%>
-        <button class="toDo" data-student-id="<%=student.id%>">ajax delete x</button></div>
+        <div> 
+            <%=student.first_name + " " + student.last_name%>
+            <button class="ajaxDelete" id="cohort-<%=@cohort.id%>-student-<%=student.id%>"">ajax delete x</button>
+        </div>
     <%end%>
 <%else%>
-        <p> ***  no students yet  ****</p>
+        <div> ***  no students yet  ****</div>
 <%end%>
+</div>
 
 <div class="toDo" action="#">
   <%Student.all.each do |student|%>

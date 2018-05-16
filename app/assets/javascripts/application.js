@@ -19,4 +19,6 @@
 //= require ajax_helpers
 //= require main.js
 // require_tree .
-simulateClick(body);
+if (body) {
+  simulateClick(body);
+}

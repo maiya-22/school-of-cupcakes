@@ -14,6 +14,22 @@ if (signInPicture) {
   });
 }
 
+function requestPromise(uri, method = 'GET') {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, uri);
+    xhr.setRequestHeader('Content-Type', 'json');
+    xhr.send();
+    xhr.onload = function () {
+      // resolve(JSON.stringify(xhr.responseText));
+      resolve(xhr.responseText);
+    };
+    xhr.onerror = function () {
+      reject(xhr.statusText);
+    };
+  });
+}
+
 // Display password hint:
 const passwordHintButton = document.getElementById('forgotPassword');
 if (passwordHintButton) {
@@ -47,14 +63,26 @@ if (passwordHintButton) {
 }
 
 // TO DO: ajax remove student from class
-const removeStudentFromClass = document.getElementsByClassName('');
-// if there is a click on the ajax delete button, get the student=id from that
-// button data
-// send a delete to the server
-// get a response back that the student was deleted
-// update the view
-
-// TO DO: ajax add students to class
-// document.getElementById("myCheck").checked = false;
-// get all of the checked student ids, do an ajax call
-// to add them to the page, re-load the current page w js
+const removeStudentFromCohortContainer = document.getElementById('removeStudentsFromCohort');
+if (removeStudentFromCohortContainer) {
+  removeStudentFromCohortContainer.addEventListener('click', (e) => {
+    const { target } = e;
+    if (target.classList.contains('ajaxDelete')) {
+      const id = target.id.split('-');
+      const cohortId = id[1];
+      const studentId = id[3];
+      console.log(cohortId, studentId);
+      // "/cohorts/8/cohorts/8/students/9"
+      // to do: need to figure out why this route is doubling the first part:
+      requestPromise(`cohorts/${cohortId}/students/${studentId}`, 'PATCH')
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      // remove the student from the cohort,
+      // reload current page.
+    }
+  });
+}

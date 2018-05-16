@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     # add a teacher to a cohort, via the teacher model (and return to view teacher)
     patch '/teacher/:id/cohort', to: 'teachers#add_to_cohort'
+    # made crazy route temporarily, so that ajax will work.  need to debug:
+    patch '/cohorts/:cohort_id/cohorts/:random_error/students/:student_id', to: 'cohorts#remove_student'
 
     # temp json routes:
     get '/students/all', to: 'students#all'

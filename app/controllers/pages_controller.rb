@@ -65,17 +65,13 @@ class PagesController < ApplicationController
         # @students = Student.all
         # render json: @students[0].cohorts
         # ******************************************************************
-        # adding a teacher to a cohort:
-        @info = {}
-        @teacher = Teacher.where(id: 1)[0]
-        @info["thisteacher"] = @teacher
-        @cohort = Cohort.where(id: 2)[0]
-        @info["previousteacher"] = @cohort.teacher
-        @cohort.teacher = @teacher
-        @info["newcohortstatus"] = @cohort
-        @info["newteacher"] = @cohort.teacher
-        render json: @info
-        # render plain: "testing route"
+        # remove a student from a cohort:
+        # @student = Student.find_by_id(22)
+        # @cohort = Cohort.find_by_id(2)
+        # @cohort.students.delete(@student)
+        # render json: {student: @student, cohort: @cohort, students: @cohort.students}
+       
+        render plain: "testing route"
     end
 
     private

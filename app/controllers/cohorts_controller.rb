@@ -46,6 +46,7 @@ class CohortsController < ApplicationController
     end
   end
 
+  # note: would you edit associations here?
   # PATCH/PUT /cohorts/1
   # PATCH/PUT /cohorts/1.json
   def update
@@ -68,6 +69,18 @@ class CohortsController < ApplicationController
       format.html { redirect_to cohorts_url, notice: 'Cohort was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # CUSTOM ROUTE:
+  # removing a student from a cohort, but not deleting the student:
+  def remove_student
+    @student =  Student.find_by_id(params[:student_id])
+    @cohort = Cohort.find_by_id(params[:cohort_id])
+    if(@student != nil && @cohort != nil)
+      @cohort.students.delete(@student)
+    end
+    # how to set message and text on response here?
+    render plain: "attempted to delete student from course"
   end
 
   private
