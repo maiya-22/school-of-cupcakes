@@ -24,14 +24,19 @@
 #hintWrap,
 #goodByeWrap {
   position: absolute;
-  top: 65px;
-  left: 450px;
+  top: calc(100vw / 2);
+  left: 260px;
   width: 100px;
   height: 100px;
   color: white;
   font-size: 1rem;
   font-family: "Indie Flower", cursive;
   line-height: 1.3rem;
+}
+#hintWrap {
+  color: white;
+  /* transform: translate(-150px, -40px); */
+  width: 200px;
 }
 
 #goodByeWrap {

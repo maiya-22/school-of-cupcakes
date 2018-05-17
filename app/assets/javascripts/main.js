@@ -49,7 +49,7 @@ if (passwordHintButton) {
         }
         const hintWrap = document.createElement('div');
         hintWrap.id = 'hintWrap';
-        hintWrap.innerHTML = `<div id="hintText">password hint: </br> ${hint}</div>`;
+        hintWrap.innerHTML = `password hint: </br> ${hint}`;
         hintWrap.classList.add('transparent');
         hintWrap.classList.add('fadeIn');
         signInPicture.appendChild(hintWrap);

@@ -1,17 +1,33 @@
 <%@display_class="displayAll"%>
-<div>
- <h1>Teachers</h1>
- <%= link_to 'New Teacher', new_teacher_path %>
+<%@this_location="teachers"%>
+<div id="subjectControlWrap">
+<%= link_to 'add a New Teacher', new_teacher_path %>
 </div>
+<div  id="wrapAll">
    <% @teachers.each do |teacher| %>
      <div class="personProfileWrap">
+
+
+     <div>
        <%= teacher.first_name %>
-       <%= teacher.last_name %>
+       <%= teacher.last_name %> :
        <%= teacher.person_type%>
-       <%= teacher.profile %>
-       <%= teacher.education %>
+    </div>
+    <div class="profilePicWrap" style="background-image: url(https:&#47;&#47;robohash.org&#47;<%=teacher.first_name%>)" >
+    </div>
+    <div>Profile:</div>
+    <div>  <%= teacher.profile %></div>
+    <div>Education: <%= teacher.education %></div>
+    <div> <%= teacher.age %></div>
+
+    <div>
        <%= link_to 'Show', teacher %>
        <%= link_to 'Edit', edit_teacher_path(teacher) %>
        <%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+       </div>
      </div>
    <% end %>
+
+
+   </div>
+   

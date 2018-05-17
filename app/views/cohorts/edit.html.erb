@@ -1,3 +1,4 @@
+<%@this_location="cohorts"%>
 <div id="editCohortWrap">
 
 <div id="editCohortHeader">
@@ -11,9 +12,9 @@
     <%= render 'edit_cohort_form',cohort: @cohort %>
   </div>
 
-  <div id="removeStudentsFromCohort">
-    <p>All Students Cohort: </p>
-    
+  <div id="removeStudentsFromCohortWrap">
+    <p id="allStudentsInCohortHeader">All Students in Cohort: </p>
+    <div id="removeStudentsFromCohort">
     <%if @cohort.students.length != 0%>
         <% @cohort.students.each do |student|%>
             <div> 
@@ -24,7 +25,7 @@
     <%else%>
             <div> ***  no students yet  ****</div>
     <%end%>
-   
+   </div>
   </div>
 
 

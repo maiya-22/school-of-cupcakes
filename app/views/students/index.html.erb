@@ -1,16 +1,13 @@
-
  <%@display_class="displayAll"%>
-
+ <%@this_location="students"%>
  <div id="subjectControlWrap">
   <%= link_to 'add a new student', new_student_path %>
  </div>
  <div id="wrapAll">
-  
-    
-  
       <% @students.each do |student| %>
-
           <div class="personProfileWrap">
+
+
             <div> 
               <%= student.first_name %>
               <%= student.last_name %> :
@@ -19,7 +16,8 @@
             
               <div class="profilePicWrap" style="background-image: url(https:&#47;&#47;robohash.org&#47;<%=student.first_name%>)" >
               </div>
-              <div>profile:</div>
+
+              <div>Profile:</div>
               <div> <%= student.profile %></div>
               <div> Education: <%= student.education %></div>
               <div> Age: <%= student.age %></div>

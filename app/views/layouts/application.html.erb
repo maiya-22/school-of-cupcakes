@@ -25,8 +25,10 @@
   <% if session[:id] != nil %>
     <form id="sign_out" action="/sign-out" method="post">
       <button type="submit">log out</button>
-      Logged in as <%= session[:user_name] %>
+      <div id="userStatus">
+      hi, <%= session[:user_name] %>! 🍓
     </form>
+    </div>
   <% end %>
   <div id="pageFrame">
       <header>
@@ -46,11 +48,12 @@
 
       <div id="controlsFrame">
         <div id="controlButtonsWrap">
+        <%@view%>
         <% if session[:id] != nil %>
-          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/teachers" : "/"%>>teachers</a></button>
-          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/students" : "/"%>>students</a></button>
-          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/courses" : "/"%>>classes</a></button>
-          <button class="bubbly-button"><a href=<%= session[:id] != nil ? "/cohorts" : "/"%>>cohorts</a></button>
+          <button class="bubbly-button  <%= @this_location == 'teachers' ? 'active' : ''%>"><a href=<%= session[:id] != nil ? "/teachers" : "/"%>>teachers</a></button>
+          <button class="bubbly-button <%= @this_location == 'students' ? 'active' : ''%>"><a href=<%= session[:id] != nil ? "/students" : "/"%>>students</a></button>
+          <button class="bubbly-button <%= @this_location == 'courses' ? 'active' : ''%>"><a href=<%= session[:id] != nil ? "/courses" : "/"%>>classes</a></button>
+          <button class="bubbly-button <%= @this_location == 'cohorts' ? 'active' : ''%>"><a href=<%= session[:id] != nil ? "/cohorts" : "/"%>>cohorts</a></button>
         </div>
         <%end%>
         <div id="controlsContent">

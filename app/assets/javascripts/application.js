@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require bubbly_button
@@ -21,4 +21,36 @@
 // require_tree .
 if (body) {
   simulateClick(body);
+}
+
+// toggle active status on buttons
+const controllButtonsWrap = document.getElementById('controlButtonsWrap');
+if (controllButtonsWrap) {
+  const allControlButtons = document.getElementsByClassName('bubbly-button');
+  controllButtonsWrap.addEventListener('click', (e) => {
+    const { target } = e;
+    if (target.tagName === 'A') {
+      for (let i = 0; i < allControlButtons.length; i++) {
+        const button = allControlButtons[i];
+        if (button === target.parentNode) {
+          setTimeout(() => {
+            button.classList.add('active');
+          }, 500);
+        } else {
+          button.classList.remove('active');
+        }
+      }
+    }
+
+    // if (target.tagName === 'BUTTON') {
+    //   console.log(allControlButtons);
+    //   for (let i = 0; i < allControlButtons.length; i++) {
+    //     const button = allControlButtons[i];
+    //     if(button != target) {
+    //       button.classList.remove('active')
+    //     } else {
+    //       button.classList.add('active')
+    //   }
+    // }
+  });
 }

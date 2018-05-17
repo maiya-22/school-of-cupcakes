@@ -1,3 +1,4 @@
+<%@this_location="students"%>
 <%= form_with(model: student, local: true) do |form| %>
   <% if student.errors.any? %>
     <div id="error_explanation">

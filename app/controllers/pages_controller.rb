@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         # note: trying to use where with strong params not working:
         @access = Access.where(user_name: params[:user_name], password: params[:password])[0]
         if(@access == nil)
-            flash[:user_error] = "That user name or password does not match"
+            flash[:user_error] = "✨💖 That user name or password does not match  💖✨"
         else
             set_session(@access)
         end

@@ -103,13 +103,20 @@
 }
 
 #subjectControlWrap {
-  background-color: white;
+  background-color: violet;
+  color: white;
   padding: 1rem;
+  position: fixed;
+  /* border: solid magenta 2px; */
+  border-radius: 10px;
   /* border: dotted magenta 5px; */
-  position: absolute;
-  top: 0px;
-  width: 300px;
-  transform: translate(850px, 600px);
+  /* position: absolute;
+  top: 0px; */
+  width: 200px;
+  transform: translate(50px, -0px);
+}
+#subjectControlWrap a {
+  color: white;
 }
 
 /* EDIT A COHORT: */
@@ -151,6 +158,7 @@
 #removeStudentsToCohortWrap {
   padding: 1rem;
 }
+
 #addStudentsToCohort,
 #removeStudentsFromCohort {
   color: darkgray;
@@ -179,5 +187,13 @@
 }
 
 #removeStudentsFromCohort div button {
-  background-color: rgb(168, 223, 213);
+  /* background-color: rgb(168, 223, 213); */
+  background-color: white;
+  color: orange;
+}
+
+#addStudentsToCohortWrap {
+  transform: translate(0px, -20px);
+  background-color: pink;
+  border: dotted orange 3px;
 }
