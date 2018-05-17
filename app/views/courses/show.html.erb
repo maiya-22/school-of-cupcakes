@@ -1,20 +1,17 @@
+
+
 <%@this_location="courses"%>
+<div id="singleWrap">
 <p id="notice"><%= notice %></p>
 
-<p> COURSE: </p>
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+
+<h3>
+ The <%= @course.name %> Master Class
+</h3>
 
 <p>
   <strong>Description:</strong>
   <%= @course.description %>
-</p>
-
-<p>
-  <strong>Pic:</strong>
-  <%= @course.pic %>
 </p>
 
 <p>
@@ -25,11 +22,14 @@
 <h3>cohorts for the course:</h3>
 <div>
 </br>
+<%= link_to 'Edit', edit_course_path(@course), :class => "edit" %> 
+</br>
 <%@course.cohorts.each do |cohort|%>
-   <div><%=cohort.name%></div>
-   <button><a href="/cohorts/<%=cohort.id%>">link to show cohort</a></button>
+  
+   <a class="show" href="/cohorts/<%=cohort.id%>"><%=cohort.name%></a>
   <%end%>
   </div>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+
+
+</div>

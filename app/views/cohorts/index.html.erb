@@ -1,23 +1,33 @@
-<%@this_location="cohorts"%>
 <%@display_class="displayAll"%>
-<div>
- <h1>Cohorts</h1>
- <%= link_to 'New Cohort', new_cohort_path %>
+<%@this_location="cohorts"%>
+<div id="subjectControlWrap">
+  <%= link_to 'add a new cohort', new_cohort_path %>
 </div>
-   <% @cohorts.each do |cohort|%>
-     <div class="courseProfileWrap">
-    <%= cohort.name %> 
-   <%= cohort.start %>
-     <%= cohort.end %>
-     <%if cohort.teacher_id != nil %>
-      *****  TEACHER:
-      <%= cohort.teacher.first_name %>
-     <%else%>
-      "this cohort needs a teacher assinged"
-     <%end%>
+<div id="wrapAll">
+
+  <% @cohorts.each do |cohort|%>
+
+    <div class="personProfileWrap">
+    <div>
+    <ul>
+    <li><%= cohort.name %> cohort:</li>
+    <li> teacher: <%= cohort.teacher.first_name + " "+ cohort.teacher.last_name %> </li>
+    <li> start: <%= cohort.start.strftime("%m/%d/%y") %> </li>
+    <li> end: <%= cohort.end.strftime("%m/%d/%y") %> </li>
    
-     <%= link_to 'Show', cohort %>
-     <%= link_to 'Edit',  "cohorts/#{cohort.id}/edit"  %>
-     <%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    </div>
+    <%= link_to 'Show', cohort, :class => "show" %>
+     <%= link_to 'Edit', edit_cohort_path(cohort), :class => "edit" %>
+     <%= link_to 'Delete', cohort, method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete" %>
      </div>
+</ul>
+
    <% end %>
+
+
+
+
+
+
+   </div>

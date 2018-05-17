@@ -1,17 +1,31 @@
-<%@this_location="courses"%>
 <%@display_class="displayAll"%>
-<div>
- <h1>Classes</h1>
- <%= link_to 'New Class', new_course_path %>
+<%@this_location="courses"%>
+<div id="subjectControlWrap">
+  <%= link_to 'add a new class', new_course_path %>
 </div>
-   <% @courses.each do |course|%>
-     <div class="courseProfileWrap">
-     <%= course.name %>
-     <%= course.description %>
-     <%= course.pic %>
-     <%= course.hours %>
-     <%= link_to 'Show', course %>
-     <%= link_to 'Edit', edit_course_path(course) %>
-     <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div id="wrapAll">
+
+  <% @courses.each do |course|%>
+
+    <div class="personProfileWrap">
+    <div>
+    <ul>
+    <li> Class:</li>
+    <li> <%= course.name %> </li>
+    <li><%= course.description %></li>
+    <li>hours: <%= course.hours %></li>
+    </div>
+    <%= link_to 'Show', course, :class => "show" %>
+     <%= link_to 'Edit', edit_course_path(course), :class => "edit" %>
+     <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete" %>
      </div>
+</ul>
+
    <% end %>
+
+
+
+
+
+
+   </div>

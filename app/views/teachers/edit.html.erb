@@ -1,16 +1,16 @@
 <%@this_location="teachers"%>
-<h1>Editing Teacher</h1>
 
+<div id="singleWrap">
+<h1>Editing Teacher:  <%=@teacher.first_name + " " + @teacher.last_name  %></h1>
 <%= render 'edit_teacher_form' %>
 
-
-<p>courses the teacher is teaching</p>
-
+<p>Cohorts <%=@teacher.first_name + " " + @teacher.last_name%> is teaching: </p>
+<ul>
 <%@cohorts = Cohort.where(teacher_id: @teacher.id)%>
 <%@cohorts.each do |cohort|%>
-   <p> *** Cohort: <%= cohort.name %> ***</p>
+   <li><%= cohort.name %></li>
 <%end%>
-
+</ul>
 
 <form action="/teacher/<%=@teacher.id%>/cohort" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
 <input type="hidden" name="authenticity_token" value="Hpz8UD63fJxpiDxsTOosP6IGTMPJjzEwylNXYfRJMFWWlqntVUIGf7SzYFg2AwMvU5uyViRvE4lSOUkRHDZ6hQ==" />
@@ -21,14 +21,8 @@
   <% end %>
 </select>
 <div class="actions">
-  <input type="submit" name="commit" value="Add cohort to teacher" data-disable-with="Update Teacher" />
+  <input class="edit" type="submit" name="commit" value="Add cohort to teacher" data-disable-with="Update Teacher" />
 </div>
 </form>
 
-
-
-
-
-
-<%= link_to 'view this teacher', @teacher %> |
-<%= link_to 'back to all teachers', teachers_path %>
+</div>

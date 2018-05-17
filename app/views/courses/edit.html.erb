@@ -1,12 +1,8 @@
 <%@this_location="courses"%>
-<h1>Editing Course</h1>
+
+<div id="singleWrap">
+<h1>Edit the <%=@course.name%> class:</h1>
 
 <%= render 'edit_form'%>
 
-
-
-
-
-<%= link_to 'see this course', @course %> ....
-<%= link_to 'all courses:', courses_path %>
-
+</div>

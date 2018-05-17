@@ -18,12 +18,12 @@
     <div>Profile:</div>
     <div>  <%= teacher.profile %></div>
     <div>Education: <%= teacher.education %></div>
-    <div> <%= teacher.age %></div>
+    <div>Age: <%= teacher.age %></div>
 
     <div>
-       <%= link_to 'Show', teacher %>
-       <%= link_to 'Edit', edit_teacher_path(teacher) %>
-       <%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <%= link_to 'Show', teacher, :class => "show" %>
+       <%= link_to 'Edit', edit_teacher_path(teacher), :class => "edit" %>
+       <%= link_to 'Delete', teacher, method: :delete, data: { confirm: 'Are you sure?' },  :class => "delete" %>
        </div>
      </div>
    <% end %>

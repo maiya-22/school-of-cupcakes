@@ -2,13 +2,11 @@
 <div id="editCohortWrap">
 
 <div id="editCohortHeader">
-  <h1>Editing Cohort</h1>
-  <%= link_to 'see this cohort', @cohort %> 
-  <%= link_to 'see all cohorts', cohorts_path %>
+  <h1>Edit the <%=@cohort.name%></h1>
 </div>
 
 <div id="editCohortBody">
-  <div id="editCohortFormWrap"
+  <div id="editCohortFormWrap">
     <%= render 'edit_cohort_form',cohort: @cohort %>
   </div>
 

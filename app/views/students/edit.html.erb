@@ -1,20 +1,24 @@
 <%@this_location="students"%>
-<h1>Editing Student</h1>
-
-<%= render 'form', student: @student %>
 
 
 
+<div id="singleWrap">
 
-COHORTS:
-<%if @student.cohorts.length > 0%>
-    <%@student.cohorts.each do |cohort|%>
-        <a href="/cohorts/<%=cohort.id%>/edit"><%=cohort.name%></a> </br>
+    <h1>Edit student: <%=@student.first_name + " " + @student.last_name%></h1>
+
+    <%= render 'form', student: @student %>
+
+   
+<div>
+   <span> See <%=@student.first_name + "'s cohorts" %></span>
+    <%if @student.cohorts.length > 0%>
+        <%@student.cohorts.each do |cohort|%>
+            <a class="show" href="/cohorts/<%=cohort.id%>/edit"><%=cohort.name%></a> </br>
+        <%end%>
+    <% else %>
+        <p>"Not registerd for class yet"</p>
     <%end%>
-<% else %>
-    <p>"Not registerd for class yet"</p>
-<%end%>
+</div>
 
-
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>
+  
+    </div>

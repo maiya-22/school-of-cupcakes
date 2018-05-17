@@ -120,3 +120,66 @@ a {
   padding-top: 0.75rem;
   font-family: "Courier New", Courier, monospace;
 }
+
+.show,
+.edit,
+.delete,
+.new {
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+.show {
+  color: rgba(0, 0, 255, 0.624);
+  background-color: rgba(64, 224, 208, 0.549);
+}
+
+.new {
+  border: none;
+  color: rgb(12, 128, 51);
+  background-color: rgba(96, 224, 64, 0.549);
+}
+
+.edit {
+  color: rgba(250, 255, 252, 0.624);
+  background-color: rgba(67, 111, 6, 0.967);
+}
+
+.delete {
+  background-color: rgba(255, 102, 0, 0.624);
+  color: rgba(255, 255, 254, 0.967);
+}
+.all {
+  background-color: violet;
+}
+.show:hover,
+.edit:hover,
+.delete:hover,
+.new:hover {
+  background-color: rgba(0, 0, 255, 0.624);
+  color: rgba(64, 224, 208, 0.549);
+}
+
+a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* wrap the items where you are showing one item at a time: */
+#singleWrap {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  margin-top: 0px;
+  /* border: solid black 2px; */
+  overflow-y: scroll;
+}
+#singleWrap * {
+  margin: 0.5rem;
+}
+#singleWrap a {
+  display: inline-block;
+}
+
+#editCohortHeader {
+  color: purple;
+  transform: translate(200px, 0px);
+}

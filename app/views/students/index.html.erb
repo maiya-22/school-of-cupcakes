@@ -1,13 +1,13 @@
- <%@display_class="displayAll"%>
+<%@display_class="displayAll"%>
  <%@this_location="students"%>
  <div id="subjectControlWrap">
   <%= link_to 'add a new student', new_student_path %>
- </div>
+  </div>    
  <div id="wrapAll">
+
+
       <% @students.each do |student| %>
           <div class="personProfileWrap">
-
-
             <div> 
               <%= student.first_name %>
               <%= student.last_name %> :
@@ -23,9 +23,9 @@
               <div> Age: <%= student.age %></div>
             
             <div>
-              <%= link_to 'View', student %>
-              <%= link_to 'Edit', edit_student_path(student) %>
-              <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'View', student, :class => "show" %>
+              <%= link_to 'Edit', edit_student_path(student), :class => "edit" %>
+              <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, :class => "delete" %>
             </div>
         </div>
      

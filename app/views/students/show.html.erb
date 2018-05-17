@@ -1,20 +1,14 @@
+
+
+
+<div id="singleWrap">
 <p id="notice"><%= notice %></p>
 
 STUDENT:
 
 <p>
-  <strong>First name:</strong>
   <%= @student.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
   <%= @student.last_name %>
-</p>
-
-<p>
-  <strong>Pic:</strong>
-  <%= @student.pic %>
 </p>
 
 <p>
@@ -34,11 +28,11 @@ STUDENT:
 
 </br>
 <%@this_location="students"%>
-WHAT COHORT IS THIS STUDENT ENROLLED IN?  
-
+Enrolments for <%=@student.first_name%>:  
 <%@student.cohorts.each do |cohort|%>
-  <%=cohort.name%>
+  <a class="show" href="/cohorts/<%=cohort.id%>/edit"><%=cohort.name%></a> 
 <%end%>
 
-<%= link_to 'edit', edit_student_path(@student) %> 
-<%= link_to 'all students', students_path %>
+<%= link_to 'edit ' + @student.first_name, edit_student_path(@student), :class => "edit"%> 
+
+</div>

@@ -1,35 +1,32 @@
 <%@this_location="cohorts"%>
+<div id="singleWrap">
 <p id="notice"><%= notice %></p>
 
-<p>COHORT:</p>
+
 <p>
-  <strong>Name:</strong>
+  The
   <%= @cohort.name %>
 </p>
 
 <p>
-  <strong>Course:</strong>
-  <%= @cohort.course.name %>
+  Featuring the 
+  "<%= @cohort.course.name %>"" course. <%= link_to 'Edit', edit_cohort_path(@cohort), :class => "edit" %> 
 </p>
 
 
-<p>
-  <strong>Start:</strong>
-  <%= @cohort.start %>
-</p>
-
-<p>
-  <strong>End:</strong>
-  <%= @cohort.end %>
-</p>
+<p> start: <%= @cohort.start.strftime("%m/%d/%y") %> </p>
+<p> end: <%= @cohort.end.strftime("%m/%d/%y") %> </p>
 
 
 
-<span> TEACHER: <%= @cohort.teacher.first_name%></span>
-All of the students::
+<p> Teacher: <%= @cohort.teacher.first_name%></p>
+<p>Students:</p>
+<ul>
 <% @cohort.students.each do |student|%>
-  <%= student.first_name + " " + student.last_name %>
+  <li><%= student.first_name + " " + student.last_name %></li>
 <%end%>
+</ul>
 
-<%= link_to 'Edit', edit_cohort_path(@cohort) %> |
-<%= link_to 'Back', cohorts_path %>
+
+
+</div>

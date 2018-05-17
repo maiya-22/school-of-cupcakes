@@ -1,13 +1,11 @@
 <%@this_location="teachers"%>
+
+<div id="singleWrap">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
+  Teacher:  
   <%= @teacher.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
   <%= @teacher.last_name %>
 </p>
 
@@ -33,10 +31,8 @@
 
 COHORTS:
 <%@teacher.cohorts.each do |cohort|%>
-  ** <%=cohort.name%> **
+  <a class="show" href="/cohorts/<%=cohort.id%>/edit"><%=cohort.name%></a>
 <%end%>
-
-<a href="/cohorts/new">create a new cohort</a>
-
-<%= link_to 'Edit  teacher', edit_teacher_path(@teacher) %> |
-<%= link_to 'all teachers', teachers_path %>
+</br>
+<%= link_to 'Edit ' + @teacher.first_name + ' ' + @teacher.last_name, edit_teacher_path(@teacher), :class => "edit" %> 
+</div>
